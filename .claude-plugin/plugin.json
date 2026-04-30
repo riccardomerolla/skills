@@ -2,7 +2,7 @@
   "name": "riccardomerolla-skills",
   "skills": [
     "./skills/engineering/clean-room-extract",
-    "./skills/engineering/csd-to-prd",
+    "./skills/engineering/csp-to-prd",
     "./skills/engineering/diagnose",
     "./skills/engineering/grill-with-docs",
     "./skills/engineering/triage",
