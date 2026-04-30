@@ -1,14 +1,18 @@
 {
   "name": "riccardomerolla-skills",
   "skills": [
+    "./skills/engineering/clean-room-extract",
+    "./skills/engineering/csd-to-prd",
     "./skills/engineering/diagnose",
     "./skills/engineering/grill-with-docs",
     "./skills/engineering/triage",
     "./skills/engineering/improve-codebase-architecture",
+    "./skills/engineering/scala3-zio",
     "./skills/engineering/setup-ricky-skills",
     "./skills/engineering/tdd",
     "./skills/engineering/to-issues",
     "./skills/engineering/to-prd",
+    "./skills/engineering/zen-of-ricky",
     "./skills/engineering/zoom-out",
     "./skills/productivity/caveman",
     "./skills/productivity/grill-me",
