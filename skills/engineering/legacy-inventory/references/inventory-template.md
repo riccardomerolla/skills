@@ -2,6 +2,8 @@
 
 This is the template for the inventory output. The skill writes a populated copy to `legacy/inventory.md` at the modernization project root. Section order is mandatory; section headings are mandatory; table structure within catalogue sections is mandatory (downstream skills parse columns by name); bullet structure within non-table sections is recommended.
 
+The illustrative rows below show structure and required fields. They are not starting state. Remove all rows marked *(example — remove this row)* and all blocks marked *(example — remove this block)* before committing the file.
+
 ---
 
 ## 1. Overview
@@ -21,7 +23,7 @@ One-paragraph summary of the system: what it does, the business domain it serves
 
 | JSP path | One-line purpose | Form posts to (servlet) | Provenance (file:line) |
 |---|---|---|---|
-| `web/pages/AccountSummary.jsp` | Displays account balance and recent transactions | `AccountSummaryServlet` | `web/pages/AccountSummary.jsp:23-45` |
+| `web/pages/AccountSummary.jsp` | Displays account balance and recent transactions | `AccountSummaryServlet` | `web/pages/AccountSummary.jsp:23-45` *(example — remove this row)* |
 
 Include every JSP found under `webapp/` or equivalent. Infer purpose from page title, `<h1>`, form labels, and field names — do not transcribe HTML.
 
@@ -31,7 +33,7 @@ Include every JSP found under `webapp/` or equivalent. Infer purpose from page t
 
 | Servlet class | URL pattern(s) | JSPs dispatched to | ESB calls invoked | Provenance |
 |---|---|---|---|---|
-| `com.bank.web.AccountSummaryServlet` | `/account/summary` | `AccountSummary.jsp` | `ESB-ACCT-001` | `src/.../AccountSummaryServlet.java:1` |
+| `com.bank.web.AccountSummaryServlet` | `/account/summary` | `AccountSummary.jsp` | `ESB-ACCT-001` | `src/.../AccountSummaryServlet.java:1` *(example — remove this row)* |
 
 Derive URL patterns from `web.xml` mappings. Derive ESB calls from the servlet body or the service class it delegates to.
 
@@ -41,7 +43,7 @@ Derive URL patterns from `web.xml` mappings. Derive ESB calls from the servlet b
 
 | Call ID | Destination kind | Destination name | Invoking servlets | Rough payload shape | Provenance |
 |---|---|---|---|---|---|
-| `ESB-ACCT-001` | Transaction code | `ACCTBAL` | `AccountSummaryServlet` | account number in, balance + transactions out | `src/.../AccountService.java:42` |
+| `ESB-ACCT-001` | Transaction code | `ACCTBAL` | `AccountSummaryServlet` | account number in, balance + transactions out | `src/.../AccountService.java:42` *(example — remove this row)* |
 
 Destination kind is one of: `transaction code`, `MQ queue`, `CICS program`, `other`. Assign a stable call ID (e.g. `ESB-<DOMAIN>-<NNN>`) so downstream skills can reference it.
 
@@ -51,7 +53,7 @@ Destination kind is one of: `transaction code`, `MQ queue`, `CICS program`, `oth
 
 | Contract ID | Transaction code or program | Direction | Invoked from (ESB call IDs) | Known semantics | Provenance |
 |---|---|---|---|---|---|
-| `MC-ACCT-001` | `ACCTBAL` | out | `ESB-ACCT-001` | Returns current balance and last 10 transactions for an account | `mule-config.xml:88` |
+| `MC-ACCT-001` | `ACCTBAL` | out | `ESB-ACCT-001` | Returns current balance and last 10 transactions for an account | `mule-config.xml:88` *(example — remove this row)* |
 
 Direction: `in` (mainframe initiates), `out` (J2EE initiates), `both`. If semantics are not visible from the ESB contract, write `opaque`. Do not open COBOL to fill this field — that is `legacy-extract-flow`'s job on targeted probes.
 
@@ -61,7 +63,7 @@ Direction: `in` (mainframe initiates), `out` (J2EE initiates), `both`. If semant
 
 | Term | Observed in | Candidate canonical name | Notes |
 |---|---|---|---|
-| `AcctBal` | JSP labels, ESB payload fields | `AccountBalance` | Abbreviated consistently; expand in domain model |
+| `AcctBal` | JSP labels, ESB payload fields | `AccountBalance` | Abbreviated consistently; expand in domain model *(example — remove this row)* |
 
 Sources for "observed in": JSP labels, form field names, servlet names, ESB payload keys, `web.xml` display names.
 
@@ -71,7 +73,7 @@ Sources for "observed in": JSP labels, form field names, servlet names, ESB payl
 
 For each candidate, use this structure:
 
-**Context name:** `<CamelCase name>`
+**Context name:** `<CamelCase name>` *(example — remove this block)*
 
 - **Included JSPs:** list of JSP paths
 - **Included servlets:** list of servlet classes

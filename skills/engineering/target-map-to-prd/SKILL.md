@@ -14,7 +14,7 @@ Slices a target map into vertical-slice PRDs. Each PRD follows the bank's house 
 
 ## Process
 
-1. Read `target/<flow>-map.md`. Identify natural vertical slices. Default to one slice per flow. Produce multiple slices only when the target map's SPA work covers more than one distinct user journey, OR its Spring Boot work spans more than one bounded-context service. Each slice must be end-to-end (SPA + Spring Boot + business rules); never split horizontally (e.g. "frontend slice" vs "backend slice").
+1. Read `target/<flow>-map.md`. Then read the flow file at the path named in the target map's Map header (`Source flow file` row) and `legacy/inventory.md` — these carry the user-facing context, edge cases, and undocumented behaviors the PRD must surface. Identify natural vertical slices. Default to one slice per flow. Produce multiple slices only when the target map's SPA work covers more than one distinct user journey, OR its Spring Boot work spans more than one bounded-context service. Each slice must be end-to-end (SPA + Spring Boot + business rules); never split horizontally (e.g. "frontend slice" vs "backend slice").
 
 2. For each slice, draft a PRD using `references/prd-template.md`:
    - **Problem Statement** — from the LBP flow's purpose and user-facing pain.

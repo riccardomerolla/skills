@@ -12,7 +12,9 @@ The illustrative rows and blocks below show structure and required fields. They 
 
 One paragraph from the user's perspective. Describe the business pain or gap the legacy flow encodes, as experienced by the end user — not the technical debt.
 
-*The loan-origination applicant flow currently requires branch staff to re-enter applicant data in three separate screens because the legacy JSP app does not maintain state across form submissions, causing errors and rework on roughly 12% of applications. (example — remove this block)*
+*The loan-origination applicant flow currently requires branch staff to re-enter applicant data in three separate screens because the legacy JSP app does not maintain state across form submissions, causing errors and rework on roughly 12% of applications.*
+
+*(example — remove this block)*
 
 ---
 
@@ -20,7 +22,9 @@ One paragraph from the user's perspective. Describe the business pain or gap the
 
 One paragraph from the user's perspective. Describe what the modernized slice delivers — the SPA screens and the Spring Boot services that back them.
 
-*A single-page application wizard guides the applicant through the submission in one continuous session, backed by a `lending-service` endpoint that persists state atomically and wraps the downstream ESB adapters; branch staff submit once and the system handles retries transparently. (example — remove this block)*
+*A single-page application wizard guides the applicant through the submission in one continuous session, backed by a `lending-service` endpoint that persists state atomically and wraps the downstream ESB adapters; branch staff submit once and the system handles retries transparently.*
+
+*(example — remove this block)*
 
 ---
 
@@ -89,7 +93,7 @@ Mandatory. One block per business rule covered by this PRD. Rubric traces are co
 
 ### Rule: `<rule-id>` — `<one-sentence rule statement>` *(example — remove this block)*
 
-**Source provenance:** `legacy/flows/<flow>.md` § Business rules § `<rule-id>` *(example — remove this block)*
+**Source provenance:** `legacy/flows/<flow>.md` § Business rules § `<rule-id>` — originally observed at `<servlet-class>:<line-range>` (for COBOL-probed rules, also cite the COBOL location: `<program> paragraph <paragraph> lines <range>`) *(example — remove this block)*
 
 **Rubric trace:**
 
@@ -120,4 +124,6 @@ Mandatory. One block per business rule covered by this PRD. Rubric traces are co
 
 Anything else relevant to this PRD: open questions from the target map not yet resolved, assumptions made during slicing, or pointers to related artifacts.
 
-*The target map flags one open question about the credit-score display format (target map § Open questions row 2) — resolve with the SPA template maintainer before implementation begins. (example — remove this block)*
+*The target map flags one open question about the credit-score display format (target map § Open questions row 2) — resolve with the SPA template maintainer before implementation begins.*
+
+*(example — remove this block)*

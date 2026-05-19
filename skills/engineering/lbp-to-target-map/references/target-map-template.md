@@ -14,7 +14,7 @@ The illustrative rows below show structure and required fields. They are not sta
 |---|---|
 | Flow name | `<flow>` |
 | Source flow file | `legacy/flows/<flow>.md` |
-| target-templates.yaml | `target-templates.yaml` (path from project root) |
+| target-templates.yaml | `target-templates.yaml` (path from modernization project root) |
 | Manifests consulted | SPA: `<path>`; Spring Boot: `<path>`; Shareable domains: `<name>` at `<path>` |
 | Date | YYYY-MM-DD |
 | Disposition summary | stay: N / move: N / split: N |
