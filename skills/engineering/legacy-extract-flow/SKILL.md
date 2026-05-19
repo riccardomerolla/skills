@@ -22,7 +22,7 @@ Deep per-flow extraction from a J2EE codebase. Reads `legacy/inventory.md` as it
 
 3. **For each ESB call in the flow,** extract the inferred payload shape (request fields and response fields) and the trigger conditions in the servlet that fire the call.
 
-4. **Enumerate the business rules the flow encodes.** For each rule, attempt to specify it from JSP + servlet + ESB contract alone. If a rule clearly lives mainframe-side and the ESB contract is insufficient to specify it for a Spring Boot adapter to wrap correctly, invoke the **B-mode COBOL probe** — see `references/cobol-probe-procedure.md`. Lift the rule and record the COBOL location as provenance.
+4. **Enumerate the business rules the flow encodes.** For each rule, attempt to specify it from JSP + servlet + ESB contract alone. If a rule clearly lives mainframe-side and the ESB contract is insufficient to specify it for a Spring Boot adapter to wrap correctly, invoke the **B-mode COBOL probe** (a bounded, read-only mainframe paragraph read — see `references/cobol-probe-procedure.md`). Lift the rule and record the COBOL location as provenance.
 
 5. **Capture data flow end-to-end:** form fields → servlet variables → ESB request payload → mainframe contract → response payload → servlet response → JSP render.
 
@@ -30,7 +30,7 @@ Deep per-flow extraction from a J2EE codebase. Reads `legacy/inventory.md` as it
 
 7. **Flag undocumented behaviors** explicitly. Each item is a candidate for grilling.
 
-8. **Write the flow file** using `references/flow-template.md`. If `legacy/flows/<flow>.md` already exists, refuse and ask the user whether to overwrite.
+8. **Write the flow file** using `references/flow-template.md`. If `legacy/flows/<flow>.md` already exists, stop and ask the user whether to overwrite. Do not proceed with writing until the user explicitly confirms. If confirmed, overwrite the file and record the overwrite date in the Flow Header.
 
 ## The COBOL probe boundary
 

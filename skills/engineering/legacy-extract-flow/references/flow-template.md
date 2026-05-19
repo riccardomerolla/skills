@@ -59,7 +59,7 @@ One row per rule encoded in this flow.
 | Rule ID | Rule statement (plain language) | Provenance | Trigger conditions | Observed examples | COBOL-probed |
 |---|---|---|---|---|---|
 | `BR-LOAN-001` | Loan amount must be between 1,000 and 500,000 inclusive | `LoanEntry.jsp:34`, `LoanEntryServlet.java:55` | On form submission, before ESB call | Amount=0 → validation error displayed | No |
-| `BR-LOAN-002` | Applicants with a delinquency flag receive DECLINED regardless of amount | `LoanEntryServlet.java:82` (trigger), `LNAPPRVL` paragraph `CHKDELQ` lines 320-340 | On ESB-LOAN-001 response processing | — | Yes — see section 10 |
+| `BR-LOAN-002` | Applicants with a delinquency flag receive DECLINED regardless of amount | `LoanEntryServlet.java:82` (trigger), `LNAPPRVL` paragraph `CHKDELQ` lines 320-340 | On ESB-LOAN-001 response processing | — | Yes — probe #1 |
 
 Rule statements are one sentence in plain language. For COBOL-probed rules, provenance includes both the ESB-side trigger and the COBOL location.
 
@@ -120,6 +120,8 @@ List anything ambiguous the extract turned up.
 
 Empty by default. Populated by the COBOL probe procedure (`references/cobol-probe-procedure.md`) when a business rule cannot be specified from J2EE source and ESB contract alone. Every probe is recorded here — this is the regulator-facing audit trail of mainframe access.
 
+The table below starts empty. The row that follows the header is an illustrative example — remove it before writing real probe data.
+
 | Probe # | ESB call ID | COBOL program | COBOL paragraph | Line range | Rule extracted (Rule ID) | Justification |
 |---|---|---|---|---|---|---|
-| 1 | `ESB-LOAN-001` | `LNAPPRVL` | `CHKDELQ` | 320–340 | `BR-LOAN-002` | ESB response field `approvalStatus` is set by mainframe; ESB contract lists `DECLINED` as a possible value but does not document the delinquency condition. Rule cannot be specified without reading the mainframe logic. |
+| *(example — remove this row)* | `ESB-LOAN-001` | `LNAPPRVL` | `CHKDELQ` | 320–340 | `BR-LOAN-002` | ESB response field `approvalStatus` is set by mainframe; ESB contract lists `DECLINED` as a possible value but does not document the delinquency condition. Rule cannot be specified without reading the mainframe logic. |
