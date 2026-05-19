@@ -10,6 +10,7 @@ Maps a single extracted flow to template-shaped modernization work in the bank's
 ## Preconditions
 
 - `legacy/flows/<flow>.md` exists. If not, stop and tell the user to run `legacy-extract-flow` first.
+- `legacy/inventory.md` exists. If it does not, proceed but note that cross-references to the inventory will be unavailable.
 - `target-templates.yaml` (or equivalent) at the modernization project root declares:
   - SPA template manifest path
   - Spring Boot service template manifest path
@@ -33,7 +34,7 @@ Every ESB-reached business rule is `stay` by default — the rule remains on the
 
 ## Provenance discipline
 
-Every piece of target work cites the LBP behavior it derives from. Every disposition decision cites its rubric trace. Non-negotiable. The target map is a regulator artifact — entries without provenance are inadmissible.
+Every piece of target work cites the flow-file behavior it derives from. Every disposition decision cites its rubric trace. Non-negotiable. The target map is a regulator artifact — entries without provenance are inadmissible.
 
 ## What this skill is not
 

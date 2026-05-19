@@ -50,10 +50,12 @@ Each dimension is scored as `stay-leaning`, `neutral`, or `move-leaning` with a 
 
 ## Decision procedure
 
+When a single rule bundles sub-behaviors with conflicting signals on a dimension, score the dimension for the system-of-record sub-behavior. The `split` disposition is precisely the mechanism for extracting the other sub-behavior into Spring Boot.
+
 1. Score each dimension as `stay-leaning`, `neutral`, or `move-leaning` with a one-line reason citing the flow file.
 2. If all six are `stay-leaning` or `neutral`: disposition is `stay`. No justification required beyond the trace.
 3. If three or more are `move-leaning`: disposition is `move`. Justification required — name the dimensions that drove the exception.
-4. If one or two are `move-leaning` and the rest are mixed: this is a `split` candidate. Justification required — state explicitly which portion moves and which stays, and why splitting is preferable to a clean `stay` adapter.
+4. If one or two are `move-leaning` and the remaining four or five are `stay-leaning` or `neutral` (in any combination): the disposition is `split`. Justification is required — state explicitly which portion moves and which stays, and why splitting is preferable to a clean `stay` adapter. If you cannot write the justification, fall back to `stay`.
 5. The rubric trace and disposition are written into the target map's business-rules section. Always.
 
 ## Examples

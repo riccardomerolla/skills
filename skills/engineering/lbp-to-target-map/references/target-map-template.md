@@ -2,7 +2,7 @@
 
 The skill writes one populated copy of this template per flow, at `target/<flow>-map.md` in the modernization project root. Section order is mandatory. Section headings are mandatory. Provenance fields are mandatory in every section — an entry without provenance is inadmissible. The downstream `target-map-to-prd` skill parses by section name; do not rename sections.
 
-The illustrative rows below show structure and required fields. They are not starting state. Remove all rows marked *(example — remove this row)* before committing the file.
+The illustrative rows below show structure and required fields. They are not starting state. Remove all rows marked *(example — remove this row)* and all blocks marked *(example — remove this block)* before committing the file. The block marker applies to the H3 rule heading and any multi-line illustrative content; the row marker applies to individual table rows.
 
 ---
 
