@@ -1,6 +1,6 @@
 # Inventory Output Template
 
-This is the template for the inventory output. The skill writes a populated copy to `legacy/inventory.md` at the modernization project root. Section order is mandatory; section headings are mandatory; bullet structure within each section is recommended.
+This is the template for the inventory output. The skill writes a populated copy to `legacy/inventory.md` at the modernization project root. Section order is mandatory; section headings are mandatory; table structure within catalogue sections is mandatory (downstream skills parse columns by name); bullet structure within non-table sections is recommended.
 
 ---
 
@@ -21,7 +21,7 @@ One-paragraph summary of the system: what it does, the business domain it serves
 
 | JSP path | One-line purpose | Form posts to (servlet) | Provenance (file:line) |
 |---|---|---|---|
-| `web/pages/AccountSummary.jsp` | Displays account balance and recent transactions | `AccountSummaryServlet` | `web/pages/AccountSummary.jsp:1` |
+| `web/pages/AccountSummary.jsp` | Displays account balance and recent transactions | `AccountSummaryServlet` | `web/pages/AccountSummary.jsp:23-45` |
 
 Include every JSP found under `webapp/` or equivalent. Infer purpose from page title, `<h1>`, form labels, and field names — do not transcribe HTML.
 
@@ -78,6 +78,8 @@ For each candidate, use this structure:
 - **Included ESB calls:** list of call IDs
 - **Included contract IDs:** list of contract IDs
 - **Rationale:** One paragraph explaining what clusters these components together — shared form-field vocabulary, co-occurring ESB calls, shared data objects, common user journey.
+
+If no clear clustering emerges, propose zero contexts and record the ambiguity in section 8 — do not invent contexts to fill the section. If more than six candidates surface, group the smallest related ones under a single "Unclassified" candidate rather than proliferating entries — downstream skills consume this list as a starting point for flow extraction, not an exhaustive map.
 
 Mark every context **candidate**. Boundaries are not final until `lbp-to-target-map` confirms them against the target architecture templates.
 

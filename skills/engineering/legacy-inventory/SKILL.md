@@ -1,6 +1,6 @@
 ---
 name: legacy-inventory
-description: Shallow whole-app scan of a legacy J2EE codebase that produces an inventory of JSPs, servlets, ESB calls, mainframe contracts, a domain glossary, and candidate bounded contexts. Use when starting a modernization analysis on a J2EE banking system, when the user wants to map a legacy app before slicing it into flows, when the user mentions "inventory the legacy app" or "scan the J2EE codebase", or as the first step in the llm4zio modernization pipeline.
+description: Shallow whole-app scan of a legacy J2EE codebase that produces an inventory of JSPs, servlets, ESB calls, mainframe contracts, a domain glossary, and candidate bounded contexts. Use when starting a modernization analysis on a J2EE banking system, when the user wants to map a legacy app before slicing it into flows, when the user mentions "inventory the legacy app" or "produce an inventory of a J2EE app", or as the first step in the llm4zio modernization pipeline.
 ---
 
 # Legacy Inventory
@@ -38,8 +38,7 @@ What this skill does NOT do:
 
    Skim — read for structure, not for transcription.
 
-3. **Build five catalogues** per the template in `references/inventory-template.md`:
-   JSP catalogue, servlet catalogue, ESB call surface, mainframe contract surface, domain glossary.
+3. **Build catalogues** per the template in `references/inventory-template.md`. The five content catalogues are JSP catalogue, servlet catalogue, ESB call surface, mainframe contract surface, and domain glossary. The template's Overview section is populated in step 1; Candidate bounded contexts is populated in step 4; Open questions is populated as ambiguities surface during the scan.
 
 4. **Propose candidate bounded contexts** by clustering servlets and JSPs that share ESB calls and form-field vocabulary. Mark every cluster **candidate** — never final.
 
