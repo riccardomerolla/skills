@@ -28,7 +28,7 @@ Slices a target map into vertical-slice PRDs. Each PRD follows the bank's house 
 
 3. Write each PRD to `docs/prd/<flow>-<slice-name>.md` at the modernization project root.
 
-4. Do not publish. Tell the user the PRDs are written and where they live. Suggest reviewing them, then invoking `to-issues` for ticket creation.
+4. Do **not** publish. Tell the user the PRDs are written and where they live. Suggest reviewing them, then invoking `to-issues` for ticket creation.
 
 ## Distinction from to-prd
 

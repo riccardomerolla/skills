@@ -26,7 +26,7 @@ One paragraph from the user's perspective. Describe what the modernized slice de
 
 ## User Stories
 
-Long numbered list. Format: `As an <actor>, I want <feature>, so that <benefit>`. Cover every presentation-surface entry in the target map slice and every edge case extracted from the LBP flow file. Err toward exhaustive.
+Long numbered list. Format: `As an <actor>, I want a <feature>, so that <benefit>`. Cover every presentation-surface entry in the target map slice and every edge case extracted from the LBP flow file. Err toward exhaustive.
 
 1. As a loan officer, I want a multi-step application wizard that saves progress automatically, so that I can resume an interrupted session without re-entering data. *(example — remove this row)*
 2. As a loan officer, I want inline validation on the income field, so that I discover formatting errors before submitting to the backend. *(example — remove this row)*
