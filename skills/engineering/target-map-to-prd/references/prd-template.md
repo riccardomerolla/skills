@@ -104,7 +104,7 @@ Mandatory. One block per business rule covered by this PRD. Rubric traces are co
 
 **Disposition:** `stay`
 
-**Justification:** *(required only for non-`stay`; omit for `stay` — the rubric trace is sufficient)*
+**Justification:** *(required for non-`stay`; omit for `stay` — the rubric trace is sufficient. For `split`: also state which portion moves and which stays.)*
 
 **Target work:** Spring Boot adapter wraps ESB call `<call-id>`. No Spring Boot implementation of the rule. *(example — remove this block)*
 
@@ -115,6 +115,8 @@ Mandatory. One block per business rule covered by this PRD. Rubric traces are co
 ---
 
 ## Further Notes
+
+*Include only if there is genuinely additional context. Omit the section if empty — do not pad with boilerplate.*
 
 Anything else relevant to this PRD: open questions from the target map not yet resolved, assumptions made during slicing, or pointers to related artifacts.
 

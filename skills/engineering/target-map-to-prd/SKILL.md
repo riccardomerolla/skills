@@ -14,7 +14,7 @@ Slices a target map into vertical-slice PRDs. Each PRD follows the bank's house 
 
 ## Process
 
-1. Read `target/<flow>-map.md`. Identify natural vertical slices: typically one slice per flow, but a wide flow with multiple bounded contexts produces multiple slices — each spanning SPA work, Spring Boot work, and associated business rules end-to-end.
+1. Read `target/<flow>-map.md`. Identify natural vertical slices. Default to one slice per flow. Produce multiple slices only when the target map's SPA work covers more than one distinct user journey, OR its Spring Boot work spans more than one bounded-context service. Each slice must be end-to-end (SPA + Spring Boot + business rules); never split horizontally (e.g. "frontend slice" vs "backend slice").
 
 2. For each slice, draft a PRD using `references/prd-template.md`:
    - **Problem Statement** — from the LBP flow's purpose and user-facing pain.
@@ -23,17 +23,17 @@ Slices a target map into vertical-slice PRDs. Each PRD follows the bank's house 
    - **Implementation Decisions** — concrete template slots, services, ESB adapters, shareable domains; cite manifest paths.
    - **Testing Decisions** — informed by the LBP's edge cases and undocumented behaviors; cover external behavior only.
    - **Out of Scope** — which other slices in the same flow are deferred to other PRDs.
-   - **Provenance** — pointers to the target map, the source LBP flow file, and the inventory.
+   - **Provenance** — pointers to the target map, the source LBP flow file, the inventory, and the relevant template manifests (SPA, Spring Boot, shareable domains).
    - **Disposition Rationale** — every business rule in scope: rule statement, full rubric trace, disposition, justification if non-`stay`.
 
 3. Write each PRD to `docs/prd/<flow>-<slice-name>.md` at the modernization project root.
 
 4. Do **not** publish. Tell the user the PRDs are written and where they live. Suggest reviewing them, then invoking `to-issues` for ticket creation.
 
-## Distinction from to-prd
+## Distinction from `to-prd`
 
 - `to-prd` takes conversation context; this skill takes a target map file.
-- `to-prd` auto-publishes to the issue tracker; this skill writes to disk and stops.
+- `to-prd` publishes to the issue tracker as its final step; this skill does not publish at all — it writes files and stops.
 - `to-prd` does not include Provenance or Disposition Rationale; this skill does — they are non-negotiable.
 
 ## Provenance discipline
