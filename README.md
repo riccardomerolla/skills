@@ -1,47 +1,34 @@
-<p>
-  <a href="https://www.aihero.dev/s/skills-newsletter">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skills-repo-dark_2x.png">
-      <source media="(prefers-color-scheme: light)" srcset="https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skill-repo-light_2x.png">
-      <img alt="Skills" src="https://res.cloudinary.com/total-typescript/image/upload/v1777382277/skill-repo-light_2x.png" width="369">
-    </picture>
-  </a>
-</p>
+# Skills For Real Engineers (Riccardo's fork)
 
-# Skills For Real Engineers
+[![skills.sh](https://skills.sh/b/riccardomerolla/skills)](https://skills.sh/riccardomerolla/skills)
 
-[![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
+A fork of [mattpocock/skills](https://github.com/mattpocock/skills), kept in sync with upstream. Matt's engineering set ships unchanged under its upstream names. On top of it this fork adds:
 
-My agent skills that I use every day to do real engineering - not vibe coding.
+- **Legacy modernization**: [`legacy-inventory`](./skills/engineering/legacy-inventory/SKILL.md) → [`legacy-extract-flow`](./skills/engineering/legacy-extract-flow/SKILL.md) → [`lbp-to-target-map`](./skills/engineering/lbp-to-target-map/SKILL.md) → [`target-map-to-prd`](./skills/engineering/target-map-to-prd/SKILL.md), a pipeline from a J2EE estate to build-ready PRDs.
+- **Clean-room reimplementation**: [`clean-room-extract`](./skills/engineering/clean-room-extract/SKILL.md) → [`csp-to-prd`](./skills/engineering/csp-to-prd/SKILL.md).
+- **TypeScript + Effect 4**: [`zen-of-ricky`](./skills/engineering/zen-of-ricky/SKILL.md) (house principles) and [`effect-ts-conventions`](./skills/engineering/effect-ts-conventions/SKILL.md) (repo mechanics), both layered on the official [Effect-TS/skills](https://github.com/Effect-TS/skills) `effect-ts` skill. The Scala 3 + ZIO versions they replace live in [`skills/deprecated/`](./skills/deprecated/README.md).
+- Two small helpers: [`zoom-out`](./skills/engineering/zoom-out/SKILL.md) and [`caveman`](./skills/productivity/caveman/SKILL.md).
 
-Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
-
-These skills are designed to be small, easy to adapt, and composable. They work with any model. They're based on decades of engineering experience. Hack around with them. Make them your own. Enjoy.
-
-If you want to keep up with changes to these skills, and any new ones I create, you can join ~60,000 other devs on my newsletter:
-
-[Sign Up To The Newsletter](https://www.aihero.dev/s/skills-newsletter)
+The essay below is Matt's, and so is the design of the core flow. Read it; it is why these skills work.
 
 ## Installation (30-second setup)
 
-Two ways in, two philosophies. **The [Claude Code plugin](https://code.claude.com/docs/en/plugins)** installs the whole set as a managed, read-only bundle that updates when I ship, so you subscribe rather than fork. **[skills.sh](https://skills.sh/mattpocock/skills)** copies editable skill files into your project, so you can hack on them and make them your own. Pick one: installing both leaves you with every skill twice.
+Two ways in. **The Claude Code plugin** installs the whole promoted set as a managed bundle from this repo's own marketplace. **[skills.sh](https://skills.sh/riccardomerolla/skills)** copies editable skill files into your project. Pick one: installing both leaves you with every skill twice.
 
 ### 1. Get the skills
 
 <details>
 <summary><strong>Claude Code</strong></summary>
 
-```bash
-claude plugins install mattpocock-skills
+```
+/plugin marketplace add riccardomerolla/skills
 ```
 
-Or, from inside a session:
-
 ```
-/plugin install mattpocock-skills
+/plugin install riccardomerolla-skills@riccardomerolla
 ```
 
-It's in Claude Code's official marketplace, so there's nothing to add first, and updates arrive automatically.
+This fork is not in Claude Code's official marketplace, so the first command registers the repo as a marketplace and the second installs the plugin from it.
 
 </details>
 
@@ -49,12 +36,10 @@ It's in Claude Code's official marketplace, so there's nothing to add first, and
 <summary><strong>Codex, and other agents</strong></summary>
 
 ```bash
-npx skills@latest add mattpocock/skills
+npx skills@latest add riccardomerolla/skills
 ```
 
-Pick the skills you want, and which coding agents to install them on. **The installer lets you choose which skills to take, so make sure `setup-matt-pocock-skills` is one of them.**
-
-A native Codex plugin is on the roadmap (see [`.agents/adr/0002-ship-as-a-claude-code-plugin.md`](./.agents/adr/0002-ship-as-a-claude-code-plugin.md)).
+Pick the skills you want, and which coding agents to install them on. **The installer lets you choose which skills to take, so make sure `setup-ricky-skills` is one of them.**
 
 </details>
 
@@ -64,18 +49,31 @@ A native Codex plugin is on the roadmap (see [`.agents/adr/0002-ship-as-a-claude
 Use the same installer, on any agent, including Claude Code:
 
 ```bash
-npx skills@latest add mattpocock/skills
+npx skills@latest add riccardomerolla/skills
 ```
 
-It writes the skills into your repo as ordinary files you own and can edit. Nothing updates behind your back; pull my latest changes when you want them with `npx skills update`.
+It writes the skills into your repo as ordinary files you own and can edit. Nothing updates behind your back; pull the latest changes when you want them with `npx skills update`.
 
 </details>
 
-### 2. Run `/setup-matt-pocock-skills`
+<details>
+<summary><strong>Effect-TS repos</strong></summary>
+
+The two Effect skills assume the official one is installed too:
+
+```bash
+npx skills add Effect-TS/skills
+```
+
+Run its `effect-ts` skill once per repo; it installs `effect` and points your agent instructions at `node_modules/effect/AGENTS.md`.
+
+</details>
+
+### 2. Run `/setup-ricky-skills`
 
 In your agent, run it once per repo. It will:
 
-- Ask you which issue tracker you want to use (GitHub, Linear, or local files)
+- Ask you which issue tracker you want to use (GitHub, GitLab, or local files)
 - Ask you what labels you apply to tickets when you triage them (`/triage` uses labels)
 - Ask you where you want to save any docs we create
 
@@ -195,7 +193,8 @@ Skills I use daily for code work.
 - **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)**: Grilling session that also builds your project's domain model, sharpening terminology and updating `CONTEXT.md` and ADRs inline.
 - **[triage](./skills/engineering/triage/SKILL.md)**: Move issues through a state machine of triage roles.
 - **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)**: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
-- **[setup-matt-pocock-skills](./skills/engineering/setup-matt-pocock-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo before using the other engineering skills.
+- **[setup-ricky-skills](./skills/engineering/setup-ricky-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo before using the other engineering skills.
+- **[zoom-out](./skills/engineering/zoom-out/SKILL.md)**: Tell the agent to zoom out and give broader context or a higher-level perspective on an unfamiliar section of code.
 - **[to-spec](./skills/engineering/to-spec/SKILL.md)**: Turn the current conversation into a spec and publish it to the issue tracker. No interview, just synthesizes what you've already discussed.
 - **[to-tickets](./skills/engineering/to-tickets/SKILL.md)**: Break any plan, spec, or conversation into a set of tracer-bullet tickets, each declaring its blocking edges, written as text in a local file, or as native blocking links on a real tracker.
 - **[implement](./skills/engineering/implement/SKILL.md)**: Build the work described by a spec or set of tickets, driving `/tdd` at pre-agreed seams and closing out with `/code-review` before committing.
@@ -212,6 +211,14 @@ Skills I use daily for code work.
 - **[code-review](./skills/engineering/code-review/SKILL.md)**: Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/spec?), run as parallel sub-agents so neither pollutes the other.
 - **[resolving-merge-conflicts](./skills/engineering/resolving-merge-conflicts/SKILL.md)**: Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation (never `--abort`).
 - **[wizard](./skills/engineering/wizard/SKILL.md)**: Generate an interactive bash wizard that walks a human through steps only they can perform: provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.
+- **[zen-of-ricky](./skills/engineering/zen-of-ricky/SKILL.md)**: House principles for TypeScript + Effect 4: illegal states unrepresentable, no mutability, domain-oriented types, and a test onion with plain assertions. Layered on the official `effect-ts` skill.
+- **[effect-ts-conventions](./skills/engineering/effect-ts-conventions/SKILL.md)**: Repo mechanics for an Effect 4 codebase: services and layers, `Schema.TaggedError` failures, schemas at boundaries, `.ts` imports, in-source fakes, and the CI gate. Includes the Effect 3 to 4 spellings that bite.
+- **[clean-room-extract](./skills/engineering/clean-room-extract/SKILL.md)**: Reverse-engineer a git repository into a Clean Specification Pack (CSP): language-agnostic, license-clean behavioural specs a separate team can rebuild from without seeing the source.
+- **[csp-to-prd](./skills/engineering/csp-to-prd/SKILL.md)**: Split a Clean Specification Pack into independently-grabbable PRDs for the build team. Operates on the `csp/` folder, never on the original source.
+- **[legacy-inventory](./skills/engineering/legacy-inventory/SKILL.md)**: Shallow whole-app scan of a legacy J2EE codebase producing the shared inventory map (JSPs, servlets, ESB calls, mainframe contracts, candidate bounded contexts).
+- **[legacy-extract-flow](./skills/engineering/legacy-extract-flow/SKILL.md)**: Deep per-flow extract of a J2EE flow's presentation, controller, integration, and business-rule surfaces, with a targeted COBOL probe for rules unreachable from the ESB contract alone.
+- **[lbp-to-target-map](./skills/engineering/lbp-to-target-map/SKILL.md)**: Map an extracted legacy flow to template-shaped work in the target Next.js and Spring Boot templates, strangler-fig by default with a rubric-traced disposition per business rule.
+- **[target-map-to-prd](./skills/engineering/target-map-to-prd/SKILL.md)**: Slice a target map into vertical-slice PRDs with provenance and disposition rationale, ready to feed into `to-tickets`.
 
 ### Productivity
 
@@ -229,3 +236,4 @@ General workflow tools, not code-specific.
 
 - **[grilling](./skills/productivity/grilling/SKILL.md)**: Interview the user relentlessly about a plan, decision, or idea until every branch of the design tree is resolved. The reusable interview primitive behind `grill-me`, `grill-with-docs`, `triage`, `wayfinder` and `improve-codebase-architecture`.
 - **[writing-for-agents](./skills/productivity/writing-for-agents/SKILL.md)**: Writing documents for agents: skills, AGENTS.md/CLAUDE.md, and any doc an agent reaches by a pointer.
+- **[caveman](./skills/productivity/caveman/SKILL.md)**: Ultra-compressed communication mode. Cuts token usage by dropping filler while keeping full technical accuracy.

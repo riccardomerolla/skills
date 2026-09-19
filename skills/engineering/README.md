@@ -10,7 +10,8 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[grill-with-docs](./grill-with-docs/SKILL.md)**: Grilling session that also builds your project's domain model, sharpening terminology and updating `CONTEXT.md` and ADRs inline.
 - **[triage](./triage/SKILL.md)**: Move issues through a state machine of triage roles.
 - **[improve-codebase-architecture](./improve-codebase-architecture/SKILL.md)**: Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
-- **[setup-matt-pocock-skills](./setup-matt-pocock-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
+- **[setup-ricky-skills](./setup-ricky-skills/SKILL.md)**: Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
+- **[zoom-out](./zoom-out/SKILL.md)**: Tell the agent to zoom out and give broader context or a higher-level perspective on an unfamiliar section of code.
 - **[to-spec](./to-spec/SKILL.md)**: Turn the current conversation into a spec and publish it to the issue tracker.
 - **[to-tickets](./to-tickets/SKILL.md)**: Break any plan, spec, or conversation into a set of tracer-bullet tickets, each declaring its blocking edges, whether as text in a local file or as native blocking links on a real tracker.
 - **[implement](./implement/SKILL.md)**: Build the work described by a spec or set of tickets, driving `/tdd` at pre-agreed seams and closing out with `/code-review` before committing.
@@ -30,3 +31,11 @@ Model- or user-reachable (rich trigger phrasing so the model can reach for them)
 - **[code-review](./code-review/SKILL.md)**: Two-axis review of the diff since a fixed point: **Standards** (does it follow the repo's coding standards, plus a Fowler smell baseline?) and **Spec** (does it faithfully implement the originating issue/spec?), run as parallel sub-agents.
 - **[resolving-merge-conflicts](./resolving-merge-conflicts/SKILL.md)**: Work through an in-progress git merge or rebase conflict hunk by hunk, resolving by intent traced to each side's primary source, then finish the operation, never `--abort`.
 - **[wizard](./wizard/SKILL.md)**: Generate an interactive bash wizard that walks a human through steps only they can perform: provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover.
+- **[zen-of-ricky](./zen-of-ricky/SKILL.md)**: House principles for TypeScript + Effect 4: illegal states unrepresentable, no mutability, domain-oriented types, a test onion with plain assertions. Layered on the official `effect-ts` skill.
+- **[effect-ts-conventions](./effect-ts-conventions/SKILL.md)**: Repo mechanics for an Effect 4 codebase: services and layers, `Schema.TaggedError` failures, schemas at boundaries, `.ts` imports, in-source fakes, the CI gate, and the Effect 3 to 4 spellings that bite.
+- **[clean-room-extract](./clean-room-extract/SKILL.md)**: Reverse-engineer a git repository into a Clean Specification Pack (CSP): language-agnostic, license-clean behavioural specs a separate team can rebuild from.
+- **[csp-to-prd](./csp-to-prd/SKILL.md)**: Split a Clean Specification Pack into independently-grabbable PRDs for the build team, operating on `csp/` only.
+- **[legacy-inventory](./legacy-inventory/SKILL.md)**: Shallow whole-app scan of a legacy J2EE codebase producing the shared inventory map.
+- **[legacy-extract-flow](./legacy-extract-flow/SKILL.md)**: Deep per-flow extract of a J2EE flow, with a targeted COBOL probe for rules unreachable from the ESB contract alone.
+- **[lbp-to-target-map](./lbp-to-target-map/SKILL.md)**: Map an extracted legacy flow to template-shaped work in the target Next.js and Spring Boot templates, strangler-fig by default.
+- **[target-map-to-prd](./target-map-to-prd/SKILL.md)**: Slice a target map into vertical-slice PRDs with provenance and disposition rationale, ready for `to-tickets`.

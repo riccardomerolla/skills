@@ -85,6 +85,16 @@ Off the main flow entirely.
 - **`/teach`**: learn a concept over multiple sessions, using the current directory as a stateful workspace.
 - **`/writing-for-agents`** is the reference for writing documents agents consume: skills, AGENTS.md, pointed-at docs.
 
+## Fork additions
+
+Skills this fork adds on top of upstream. None of them changes the main flow; two of them feed it.
+
+- **Legacy modernization** is an on-ramp for a J2EE estate. Run the four in order: **`/legacy-inventory`** (shallow whole-app scan into a shared inventory map), then **`/legacy-extract-flow`** per flow (deep extract of presentation, controller, integration, and business rules, with a COBOL probe when the ESB contract is not enough), then **`/lbp-to-target-map`** (map the flow onto the target templates, strangler-fig by default, with a disposition per rule), then **`/target-map-to-prd`** (slice the map into vertical-slice PRDs with provenance). The PRDs merge onto the main flow at **`/to-tickets`**. Between extract and map, point **`/grill-with-docs`** at the flow file to surface the undocumented rules.
+- **Clean-room reimplementation** is the other on-ramp. **`/clean-room-extract`** turns a repository into a Clean Specification Pack (language-agnostic, license-clean); **`/csp-to-prd`** splits that pack into PRDs for a build team that never sees the source. Merge at **`/to-tickets`** as above.
+- **TypeScript + Effect 4**, two model-invoked vocabulary layers that run underneath the other skills in an Effect repo, both assuming the official `effect-ts` skill from Effect-TS/skills is installed: **`/zen-of-ricky`** for how code is shaped (illegal states unrepresentable, no mutability, domain types, the test onion), and **`/effect-ts-conventions`** for repo mechanics (services and layers, `Schema.TaggedError`, schemas at boundaries, in-source fakes, the CI gate, the Effect 3 to 4 spellings that bite). `/tdd`, `/implement`, and `/code-review` pull them in when the repo uses Effect.
+- **`/zoom-out`**: you are lost in a section of code; the agent goes up a layer and draws the map of modules and callers in the project's `CONTEXT.md` vocabulary. Standalone, user-invoked.
+- **`/caveman`**: ultra-compressed replies for a long session where tokens matter more than prose. Model-invoked, so the agent switches when asked to be brief.
+
 ## Precondition
 
-**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+**`/setup-ricky-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
