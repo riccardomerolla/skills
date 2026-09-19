@@ -1,0 +1,3 @@
+interface:
+  display_name: "Legacy Inventory"
+  short_description: "Shallow scan of a legacy J2EE codebase"

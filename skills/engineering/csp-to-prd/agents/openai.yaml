@@ -1,0 +1,3 @@
+interface:
+  display_name: "CSP To PRD"
+  short_description: "Split a Clean Specification Pack into PRDs"

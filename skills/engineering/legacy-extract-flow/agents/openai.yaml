@@ -1,0 +1,3 @@
+interface:
+  display_name: "Legacy Extract Flow"
+  short_description: "Deep per-flow extract of a J2EE flow"

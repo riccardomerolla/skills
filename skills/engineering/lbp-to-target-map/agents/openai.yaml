@@ -1,0 +1,3 @@
+interface:
+  display_name: "LBP To Target Map"
+  short_description: "Map a legacy flow to template-shaped target work"

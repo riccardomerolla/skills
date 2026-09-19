@@ -22,7 +22,7 @@ Greenfield is not a requirement. Wayfinder is used routinely on legacy and half-
 
 ## Prerequisites
 
-The map and its tickets live on the repo's issue tracker, so wayfinder needs the tracker wiring that [setup-matt-pocock-skills](https://aihero.dev/skills-setup-matt-pocock-skills) lays down. That step writes a "Wayfinding operations" section describing how the map, its child tickets, blocking edges, and frontier queries are expressed for GitHub, GitLab, or local markdown. Wayfinder resolves that doc through the pointer in your `CLAUDE.md` / `AGENTS.md` rather than a fixed path; with no tracker configured at all it falls back to local markdown files.
+The map and its tickets live on the repo's issue tracker, so wayfinder needs the tracker wiring that [setup-ricky-skills](https://aihero.dev/skills-setup-ricky-skills) lays down. That step writes a "Wayfinding operations" section describing how the map, its child tickets, blocking edges, and frontier queries are expressed for GitHub, GitLab, or local markdown. Wayfinder resolves that doc through the pointer in your `CLAUDE.md` / `AGENTS.md` rather than a fixed path; with no tracker configured at all it falls back to local markdown files.
 
 The tracker is not decoration. Blocking is what renders the frontier visually in the tracker's own UI, and a tracker without native dependency links (a self-hosted Gitea, say) degrades wayfinder to inferring blockers from the map text, which works but needs closer supervision.
 

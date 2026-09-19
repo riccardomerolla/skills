@@ -1,0 +1,3 @@
+interface:
+  display_name: "Target Map To PRD"
+  short_description: "Slice a target map into vertical-slice PRDs"
