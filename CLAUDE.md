@@ -21,7 +21,7 @@ The docs pages under `docs/engineering/` and `docs/productivity/` belong to upst
 
 Every `SKILL.md` is either user-invoked (`disable-model-invocation: true` plus `policy.allow_implicit_invocation: false` in `agents/openai.yaml`, reachable only by the human) or model-invoked (model- or user-reachable). See [.agents/invocation.md](./.agents/invocation.md).
 
-[`ask-matt`](./skills/engineering/ask-matt/SKILL.md) is the router that maps every user-reachable skill and how they relate, including the fork-added ones under its "Fork additions" section. The same trigger that re-syncs a docs page applies to it: whenever you add, rename, remove, or change how a user-reachable skill fits the flows, re-read `ask-matt`'s `SKILL.md` and update it so the map stays accurate: a new skill it never mentions, or a stale one it still routes to, is a router that lies.
+[`ask-me`](./skills/engineering/ask-me/SKILL.md) is the router that maps every user-reachable skill and how they relate, including the fork-added ones under its "Fork additions" section. The same trigger that re-syncs a docs page applies to it: whenever you add, rename, remove, or change how a user-reachable skill fits the flows, re-read `ask-me`'s `SKILL.md` and update it so the map stays accurate: a new skill it never mentions, or a stale one it still routes to, is a router that lies.
 
 The Effect skills (`zen-of-ricky`, `effect-ts-conventions`) declare the official `effect-ts` skill from [Effect-TS/skills](https://github.com/Effect-TS/skills) as a prerequisite and never copy its content; every Effect snippet in them targets `effect@4` and is checked against the installed source before it is written.
 
