@@ -30,7 +30,7 @@ export type UserId = typeof UserId.Type
 export const Age = Schema.Int.check(Schema.isBetween({ minimum: 0, maximum: 150 }))
 export type Age = typeof Age.Type
 
-export const NonEmptyName = Schema.String.check(Schema.isNonEmpty())
+export const NonEmptyName = Schema.String.check(Schema.isNonEmpty()) // or the ready-made Schema.NonEmptyString
 ```
 
 Decode untrusted input with `Schema.decodeUnknownEffect(schema)(input)`; the failure is a typed `SchemaError`, not a thrown exception. Never re-validate a branded value downstream: if it has the brand, it passed.

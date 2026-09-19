@@ -64,7 +64,7 @@ export const RateLimiterLive = (config: RateLimiterConfig) =>
   Layer.effect(RateLimiter, makeRateLimiter(config))
 ```
 
-- `FooLive` is the production layer. `FooNoop` is a `Layer.succeed(Foo, { ... })` that does nothing, for callers that do not care. `makeFakeFoo` is the test double (below).
+- `FooLive` is the production layer. `FooNoop` is a `Layer.succeed(Foo, { ... })` that does nothing, for callers that do not care. `makeFakeFoo` is the test double for a service that talks to the outside world (below). `makeMemoryFoo` is an in-memory implementation that is real, not a double: a store or registry whose memory version is a legitimate production choice, and which tests use directly.
 - Build implementations with `Effect.fn("id")` so spans and stack traces carry the name. Do not wrap a bare `Effect.gen` in an arrow function.
 - Compose with `Layer.provide` and `Layer.provideMerge`; a layer that needs configuration takes it as a plain argument, as above, or uses `Layer.unwrap`.
 - Access a service inside an effect with `yield* RateLimiter`; never construct one by hand outside its own module.
